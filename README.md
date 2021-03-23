@@ -1,3 +1,44 @@
+# memo
+
+## とりくみ
+* playとangularを立てる方法と、playの中でangularを使う方法(angular-element)がある　注意！
+    - 今回はplayとangularで進めていく
+    - play側はjsonを返す
+    - angular側は描画を担当
+
+* json化はひとまず後回し
+    - play側で適当なjsonを固定で返しておく
+
+* angularを導入する
+* `typescript``pug`もまとめて導入
+
+* 何でもいいのでページを表示させる
+    - プロジェクトの立ち上げチェック
+
+## angularの導入
+* nvmでnode, npmを導入
+* npmでngを導入
+
+準備完了！
+
+## プロジェクトの作成
+* `ng new <project name>`
+* `yarn add <packages>`
+    - pug
+    - pug cli
+    - typescript
+
+## 気がついたこと
+* パッケージを導入する際のこまめなビルド
+    - 依存とかでこけがち
+    - 学び始めだとなかなか原因を探れないので、こまめにビルドを挟んでエラーが起きるタイミングを把握しておく
+
+
+
+
+
+# --------- angular -----------
+
 # TodoFront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
