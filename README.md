@@ -25,6 +25,8 @@
     * click eventを作成
         - 選択したデータを別componentに渡して表示してみる
     * serviceを作成
+    * routingを作成
+        - 自分で適当に作ったcomponentにも繋いでみる
 
 ## angularの導入
 * nvmでnode, npmを導入
