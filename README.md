@@ -18,6 +18,10 @@
 * 適当なコンポーネントを作ってみる
     - angularの動作チェック
 
+* tohに従って色々作ってみる
+    * componentの自動生成
+    * input-form
+
 ## angularの導入
 * nvmでnode, npmを導入
 * npmでngを導入
