@@ -25,6 +25,13 @@
     * click eventを作成
         - 選択したデータを別componentに渡して表示してみる
     * serviceを作成
+    * routingを作成
+        - 自分で適当に作ったcomponentにも繋いでみる
+        - routesを取得してforでリンクを貼ってみる
+    * routingを作成(パラメータあり)
+    * サーバからデータ取得
+        - playで立てているサーバを使う
+        - [リバースプロキシの設定をする](https://medium.com/nextbeat-engineering/%E7%A0%94%E4%BF%AE%E4%B8%AD%E3%81%AB%E5%AE%9F%E8%A3%85%E5%87%BA%E6%9D%A5%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9Fscala-play-framework%E3%81%AE%E8%AA%8D%E8%A8%BC%E6%A9%9F%E8%83%BD%E3%81%A8angular%E5%B0%8E%E5%85%A5%E3%82%92%E3%82%84%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%BE%E3%81%97%E3%81%9F-ffbf6f74a1ef)
 
 ## angularの導入
 * nvmでnode, npmを導入
@@ -39,11 +46,35 @@
     - pug cli
     - typescript
 
+## リバースプロキシの設定
+* src/proxy.conf.json
+```
+{
+  "/api": {
+    "target": "http://localhost:9000",
+    "secure": false
+  }
+}
+```
+
+`/api` 以降がlocalhost:9000になる
+
+例えば以下のようになる
+`http://localhost:4200/heroes` → angular
+`http://localhost:4200/api/todos` → play
+
+* 起動オプション
+```
+ng serve --proxy-config src/proxy.conf.json --host 0.0.0.0
+```
+
 ## 気がついたこと
 * パッケージを導入する際のこまめなビルド
     - 依存とかでこけがち
     - 学び始めだとなかなか原因を探れないので、こまめにビルドを挟んでエラーが起きるタイミングを把握しておく
 
+* レイアウトが気になる
+    - 思ったように配置できないとflexboxなどで時間が取られる
 
 
 

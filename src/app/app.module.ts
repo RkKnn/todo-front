@@ -8,15 +8,18 @@ import { SampleComponent } from './sample/sample.component';
 import { GenSampleComponent } from './gen-sample/gen-sample.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent, SampleComponent, GenSampleComponent, HeroesComponent, MessagesComponent
+    AppComponent, SampleComponent, GenSampleComponent, HeroesComponent, MessagesComponent, DashboardComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,12 @@
-<sample-root></sample-root>
+{{ title }}
+<nav>
+  <ul>
+    <li *ngFor="let route of routes">
+      <a routerLink="{{ route.path }}">{{ route.name }}</a>
+    </li>
+  </ul>
+</nav>
 
-<app-heroes></app-heroes>
+<router-outlet></router-outlet>
+
 <app-messages></app-messages>
