@@ -24,6 +24,7 @@
     * input-formを作成
     * click eventを作成
         - 選択したデータを別componentに渡して表示してみる
+    * serviceを作成
 
 ## angularの導入
 * nvmでnode, npmを導入
