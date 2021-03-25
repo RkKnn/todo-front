@@ -1,6 +1,6 @@
 <h2>dashboard</h2>
 <div>
-  <a *ngFor="let hero of heroes">
+  <a *ngFor="let hero of heroes" routerLink="/detail/{{ hero.id }}">
     {{ hero.name }}
   </a>
 </div>

@@ -1,12 +1,14 @@
-<p>heroes ↓</p>
+<div class="clearfix">
+  <p>heroes ↓</p>
 
-<ul class="hero-list">
-  <li *ngFor='let hero of heroes' class="hero-list__item" [class.hero-list__item_selected]="hero === selectedHero" (click)="onSelect(hero)">
-    <span class="hero-list__id">id: {{ hero.id }}</span>
-    <span class="hero-list__name">name: {{ hero.name }}</span>
-  </li>
-</ul>
+  <ul class="hero-list">
+    <li *ngFor='let hero of heroes' class="hero-list__item" [class.hero-list__item_selected]="hero === selectedHero" (click)="onSelect(hero)">
+      <span class="hero-list__id">id: {{ hero.id }}</span>
+      <span class="hero-list__name">name: {{ hero.name }}</span>
+    </li>
+  </ul>
 
-<div *ngIf='selectedHero'>
-  <app-gen-sample [hero]=selectedHero></app-gen-sample>
+  <div *ngIf='selectedHero'>
+    <app-gen-sample [hero]=selectedHero></app-gen-sample>
+  </div>
 </div>
