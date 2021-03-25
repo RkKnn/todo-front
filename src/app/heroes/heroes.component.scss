@@ -1,22 +1,29 @@
 .hero-list {
+  float: left;
   list-style: none;
-  display: table;
-  border-spacing: 10px;
   padding: 0;
   margin: 0;
+  margin-right: 10px;
 
   &__item {
-    display: table-row;
+    display: flex;
+    align-content: flex-start;
+    margin-bottom: 10px;
     &:hover {
       background-color: gray;
+    }
+
+    &_selected {
+      background: linear-gradient(transparent 90%, red 50%);
     }
   }
 
   &__id {
-    display: table-cell;
+    flex-grow: 1;
+    margin-right: 10px;
   }
 
   &__name {
-    display: table-cell;
+    flex-grow: 1;
   }
 }
