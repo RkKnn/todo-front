@@ -27,6 +27,7 @@
     * serviceを作成
     * routingを作成
         - 自分で適当に作ったcomponentにも繋いでみる
+        - routesを取得してforでリンクを貼ってみる
 
 ## angularの導入
 * nvmでnode, npmを導入
