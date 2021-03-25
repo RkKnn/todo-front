@@ -8,10 +8,11 @@ import { SampleComponent } from './sample/sample.component';
 import { GenSampleComponent } from './gen-sample/gen-sample.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent, SampleComponent, GenSampleComponent, HeroesComponent, MessagesComponent
+    AppComponent, SampleComponent, GenSampleComponent, HeroesComponent, MessagesComponent, DashboardComponent
   ],
   imports: [
     BrowserModule,
