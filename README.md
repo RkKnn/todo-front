@@ -20,7 +20,8 @@
 
 * tohに従って色々作ってみる
     * componentの自動生成
-    * input-form
+    * input-formを作成
+    * 
 
 ## angularの導入
 * nvmでnode, npmを導入
