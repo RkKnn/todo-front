@@ -1,5 +1,5 @@
 import { UpperCasePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { GenSample } from '../gen-sample';
 
 @Component({
@@ -9,12 +9,10 @@ import { GenSample } from '../gen-sample';
 })
 
 export class GenSampleComponent implements OnInit {
-  hero: GenSample = {
-    id: 1,
-    name: "Windstorm"
-  };
+  @Input() hero?: GenSample;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
