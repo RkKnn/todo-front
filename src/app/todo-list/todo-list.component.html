@@ -1,9 +1,7 @@
-<p>todo-list works!</p>
-
-<ul>
-  <li *ngFor="let todo of todoList">
+<ul class="todo-list">
+  <li *ngFor="let todo of todoList" class="todo-list__item">
     <div>
-      <h2>{{ todo.title }}</h2>
+      <h3 class="todo-list__title">{{ todo.title }}</h3>
       <div><pre>{{ todo.body }}</pre></div>
     </div>
   </li>
