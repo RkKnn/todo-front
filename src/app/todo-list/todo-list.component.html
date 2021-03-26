@@ -1,8 +1,17 @@
 <ul class="todo-list">
-  <li *ngFor="let todo of todoList" class="todo-list__item">
-    <div>
-      <h3 class="todo-list__title">{{ todo.title }}</h3>
-      <div><pre>{{ todo.body }}</pre></div>
-    </div>
-  </li>
+  <form ng-submit="getTodoList()">
+    <li *ngFor="let todo of todoList" class="todo-list__item">
+      <label for="select_id_{{ todo.id }}">
+        <input type="checkbox" name="ids[]" id="select_id_{{ todo.id }}" value="{{ todo.id }}">
+        <div>
+          <h3 class="todo-list__title">{{ todo.title }}</h3>
+          <div>
+            <pre>{{ todo.body }}</pre>
+          </div>
+        </div>
+      </label>
+    </li>
+
+    <input type="submit" value="削除" (click)="deleteTodo()">
+  </form>
 </ul>
