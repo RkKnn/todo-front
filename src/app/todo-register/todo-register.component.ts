@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { IncompleteTodo } from '*/json/todo.json';
 import { HttpClient } from '@angular/common/http';
 import { Backend } from '../app.module';
+import { TodoListComponent } from '../todo-list/todo-list.component';
 
 @Component({
   selector: 'app-todo-register',
@@ -17,8 +18,6 @@ export class TodoRegisterComponent implements OnInit {
   }
 
   addTodo(): void {
-    this.http.post(Backend.url('register'), this.todo).subscribe(value => {
-      console.log(value);
-    });
+    this.http.post(Backend.url('register'), this.todo).subscribe();
   }
 }

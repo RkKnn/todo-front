@@ -15,4 +15,9 @@ declare module '*/json/todo.json' {
     body: string;
     state: string;
   }
+
+  export interface WithCheckbox<T> {
+    item: T;
+    checked: boolean;
+  }
 }

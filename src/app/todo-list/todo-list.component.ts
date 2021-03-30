@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoListService } from '../todo-list.service';
 
-import { Todo } from '*/json/todo.json';
+import { Todo, WithCheckbox } from '*/json/todo.json';
 
 @Component({
   selector: 'app-todo-list',
@@ -9,7 +9,7 @@ import { Todo } from '*/json/todo.json';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
-  todoList: Todo[] = [];
+  todoList: WithCheckbox<Todo>[] = [];
 
   constructor(private todoListService: TodoListService) { }
 
@@ -19,11 +19,12 @@ export class TodoListComponent implements OnInit {
 
   getTodoList(): void {
     this.todoListService.getTodoList().subscribe(todoList => {
-      this.todoList = todoList;
+      this.todoList = todoList.map(todo => ({item: todo, checked: false} as WithCheckbox<Todo>));
     });
   }
 
   deleteTodo(): void {
-
+    const ids = this.todoList.filter(value => value.checked).map(value => value.item.id);
+    this.todoListService.deleteTodoList(ids).subscribe();
   }
 }

@@ -15,4 +15,8 @@ export class TodoListService {
   getTodoList(): Observable<Todo[]> {
     return this.http.get<Todo[]>(Backend.url('todos'));
   }
+
+  deleteTodoList(ids: number[]): Observable<void> {
+    return this.http.post<void>(Backend.url('delete'), ids);
+  }
 }
