@@ -9,7 +9,10 @@ declare module '*/json/todo.json' {
     createdAt: Date;
   }
 
-  export interface TodoList {
-    todo: Todo[];
+  export interface IncompleteTodo {
+    categoryId: number;
+    title: string;
+    body: string;
+    state: string;
   }
 }
