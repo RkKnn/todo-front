@@ -10,7 +10,6 @@ declare module '*/json/todo.json' {
   }
 
   export interface IncompleteTodo {
-    csrfToken: string;
     categoryId: number;
     title: string;
     body: string;

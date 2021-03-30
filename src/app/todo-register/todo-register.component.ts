@@ -9,7 +9,7 @@ import { Backend } from '../app.module';
   styleUrls: ['./todo-register.component.scss']
 })
 export class TodoRegisterComponent implements OnInit {
-  @Input() todo: IncompleteTodo = {categoryId: 0, title: "", body: "", state: "ACTIVE", csrfToken: "4709a99b439901a8cd78301366e21449062450aa-1617077443353-a275dc256211d3d08c159400"};
+  @Input() todo: IncompleteTodo = {categoryId: 0, title: "", body: "", state: "ACTIVE"};
 
   constructor(private http: HttpClient) { }
 
