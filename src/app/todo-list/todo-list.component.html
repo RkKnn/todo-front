@@ -1,19 +1,17 @@
-<app-todo-register></app-todo-register>
+<app-todo-register (registerEvent)="todoRefresh()"></app-todo-register>
 
 <ul class="todo-list">
-  <form ng-submit="getTodoList()">
-    <label *ngFor="let todo of todoList" for="select_id_{{ todo.item.id }}">
-      <li class="todo-list__item">
-        <input type="checkbox" id="select_id_{{ todo.item.id }}" [(ngModel)]="todo.checked" name="ids[]">
+  <label *ngFor="let todo of todoList" for="select_id_{{ todo.item.id }}">
+    <li class="todo-list__item">
+      <input type="checkbox" id="select_id_{{ todo.item.id }}" [(ngModel)]="todo.checked" name="ids[]">
+      <div>
+        <h3 class="todo-list__title">{{ todo.item.title }}</h3>
         <div>
-          <h3 class="todo-list__title">{{ todo.item.title }}</h3>
-          <div>
-            <pre>{{ todo.item.body }}</pre>
-          </div>
+          <pre>{{ todo.item.body }}</pre>
         </div>
-      </li>
-    </label>
+      </div>
+    </li>
+  </label>
 
-    <input type="submit" value="削除" (click)="deleteTodo()">
-  </form>
+  <button (click)="deleteTodo()">削除</button>
 </ul>
