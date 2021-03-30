@@ -13,6 +13,6 @@ export class TodoListService {
   constructor(private http: HttpClient) { }
 
   getTodoList(): Observable<Todo[]> {
-    return this.http.get<Todo[]>(Backend.url("todos"));
+    return this.http.get<Todo[]>(Backend.url('todos'));
   }
 }

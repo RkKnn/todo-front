@@ -29,6 +29,6 @@ export class AppModule { }
 
 export class Backend {
   static url(entrypoint: string): string {
-    return `/api/${entrypoint}`
+    return `/api/${entrypoint}`;
   }
 }

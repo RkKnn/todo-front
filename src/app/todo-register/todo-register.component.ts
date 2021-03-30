@@ -9,14 +9,14 @@ import { Backend } from '../app.module';
   styleUrls: ['./todo-register.component.scss']
 })
 export class TodoRegisterComponent implements OnInit {
-  @Input() todo: IncompleteTodo = {categoryId: 0, title: "", body: "", state: "ACTIVE"};
+  @Input() todo: IncompleteTodo = {categoryId: 0, title: '', body: '', state: 'ACTIVE'};
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
   }
 
-  addTodo() {
+  addTodo(): void {
     this.http.post(Backend.url('register'), this.todo).subscribe(value => {
       console.log(value);
     });

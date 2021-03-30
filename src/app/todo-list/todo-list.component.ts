@@ -9,21 +9,21 @@ import { Todo } from '*/json/todo.json';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
-  todoList: Todo[] = []
+  todoList: Todo[] = [];
 
   constructor(private todoListService: TodoListService) { }
 
   ngOnInit(): void {
-    this.getTodoList()
+    this.getTodoList();
   }
 
-  getTodoList() {
+  getTodoList(): void {
     this.todoListService.getTodoList().subscribe(todoList => {
       this.todoList = todoList;
-    })
+    });
   }
 
-  deleteTodo() {
+  deleteTodo(): void {
 
   }
 }
