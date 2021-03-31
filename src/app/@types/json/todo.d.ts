@@ -29,9 +29,4 @@ declare module '*/json/todo.json' {
     updatedAt: Date;
     createdAt: Date;
   }
-
-  export interface MapJson<K, V> {
-    key: K;
-    value: V;
-  }
 }

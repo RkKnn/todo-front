@@ -23,7 +23,7 @@ export class TodoListComponent implements OnInit {
     this.todoListService.getTodoList().pipe(
       mergeMap(todoList => {
         this.todoList = todoList.map(todo => ({item: todo, checked: false} as WithCheckbox<Todo>));
-        return this.todoListService.getCategoryRef(todoList.map(todo => todo.categoryId))
+        return this.todoListService.getCategoryRef(todoList.map(todo => todo.categoryId));
       })
     ).subscribe(categoryRef => {
       this.categoryRef = categoryRef;

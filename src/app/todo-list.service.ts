@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Todo, Category, MapJson } from '*/json/todo.json';
+import { Todo, Category, IncompleteTodo } from '*/json/todo.json';
 import { Backend } from './app.module';
 import { map } from 'rxjs/operators';
 
@@ -25,5 +25,9 @@ export class TodoListService {
 
   deleteTodoList(ids: number[]): Observable<void> {
     return this.http.post<void>(Backend.url('delete'), ids);
+  }
+
+  addTodo(todo: IncompleteTodo): Observable<void> {
+    return this.http.post<void>(Backend.url('register'), todo);
   }
 }
