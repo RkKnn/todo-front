@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Backend } from '../app.module';
 import { CategoryService } from '../category.service';
 import { TodoListService } from '../todo-list.service';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-todo-register',
@@ -17,7 +18,11 @@ export class TodoRegisterComponent implements OnInit {
   categories: Category[] = [];
   stateTypes: string[] = [];
 
-  constructor(private http: HttpClient, private todoListService: TodoListService, private categoryService: CategoryService) { }
+  constructor(
+    private http: HttpClient,
+    private snackBar: MatSnackBar,
+    private todoListService: TodoListService,
+    private categoryService: CategoryService) { }
 
   ngOnInit(): void {
     this.getCategories();
@@ -36,6 +41,11 @@ export class TodoRegisterComponent implements OnInit {
   }
 
   addTodo(): void {
-    this.todoListService.addTodo(this.todo).subscribe(() => this.registerEvent.emit());
+    this.todoListService.addTodo(this.todo).subscribe(() => {
+      this.snackBar.open('saved', 'close', {
+        duration: 1000,
+      });
+      this.registerEvent.emit()
+    });
   }
 }
