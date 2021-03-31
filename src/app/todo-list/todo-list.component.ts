@@ -3,6 +3,7 @@ import { TodoListService } from '../todo-list.service';
 
 import { Todo, WithCheckbox, Category } from '*/json/todo.json';
 import { mergeMap } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-todo-list',
@@ -13,7 +14,9 @@ export class TodoListComponent implements OnInit {
   todoList: WithCheckbox<Todo>[] = [];
   categoryRef: Map<number, Category> = new Map();
 
-  constructor(private todoListService: TodoListService) { }
+  constructor(
+    private todoListService: TodoListService,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.getTodoList();
@@ -32,10 +35,14 @@ export class TodoListComponent implements OnInit {
 
   deleteTodo(): void {
     const ids = this.todoList.filter(value => value.checked).map(value => value.item.id);
-    this.todoListService.deleteTodoList(ids).subscribe(() => this.todoRefresh());
+    this.todoListService.deleteTodoList(ids).subscribe(() => this.todoRefresh("delete"));
   }
 
-  todoRefresh(): void {
+  todoRefresh(message: string): void {
+    this.snackBar.open(message, 'close', {
+      duration: 1000,
+    });
+
     this.getTodoList();
   }
 }
