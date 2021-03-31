@@ -20,4 +20,18 @@ declare module '*/json/todo.json' {
     item: T;
     checked: boolean;
   }
+
+  export interface Category {
+    id: number;
+    name: string;
+    slug: string;
+    color: number;
+    updatedAt: Date;
+    createdAt: Date;
+  }
+
+  export interface MapJson<K, V> {
+    key: K;
+    value: V;
+  }
 }
