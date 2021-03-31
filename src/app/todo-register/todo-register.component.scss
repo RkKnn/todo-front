@@ -2,10 +2,12 @@
   margin: 100px;
   margin-top: 0;
   display: flex;
+  justify-content: center;
 
   &__click-item {
     display: flex;
     flex-direction: column;
+    margin-right: 100px;
   }
 
   &__text-item {

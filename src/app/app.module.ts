@@ -8,7 +8,6 @@ import { HeaderComponent } from './header/header.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoRegisterComponent } from './todo-register/todo-register.component';
 import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 
 @NgModule({
@@ -23,7 +22,6 @@ import { MaterialModule } from './material.module';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule,
     MaterialModule
   ],
   providers: [],
