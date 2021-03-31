@@ -1,0 +1,22 @@
+.todo-register {
+  margin: 100px;
+  margin-top: 0;
+  display: flex;
+
+  &__click-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__text-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__button {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    font-size: larger;
+  }
+}

@@ -1,15 +1,20 @@
-<div>
-  <select [(ngModel)]="todo.categoryId">
-    <option *ngFor="let category of categories" [ngValue]="category.id">
-      {{ category.name }}
-    </option>
-  </select>
-  <input type="text" placeholder="title" [(ngModel)]="todo.title">
-  <input type="text" id="body" placeholder="body" [(ngModel)]="todo.body">
-  <select [(ngModel)]="todo.state">
-    <option *ngFor="let stateType of stateTypes" [ngValue]="stateType">
-      {{ stateType }}
-    </option>
-  </select>
-  <button (click)="addTodo()">追加</button>
+<div class="todo-register">
+  <div class="todo-register__click-item">
+    <select [(ngModel)]="todo.categoryId" class="todo-register__select-item">
+      <option *ngFor="let category of categories" [ngValue]="category.id">
+        {{ category.name }}
+      </option>
+    </select>
+    <select [(ngModel)]="todo.state" class="todo-register__select-item">
+      <option *ngFor="let stateType of stateTypes" [ngValue]="stateType">
+        {{ stateType }}
+      </option>
+    </select>
+    <button (click)="addTodo()" class="todo-register__button">+</button>
+  </div>
+
+  <div class="todo-register__text-item">
+    <input type="text" placeholder="やること" [(ngModel)]="todo.title" class="todo-register__title">
+    <textarea cols="30" rows="10" [(ngModel)]="todo.body" placeholder="内容" class="todo-register__body"></textarea>
+  </div>
 </div>
