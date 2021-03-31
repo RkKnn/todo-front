@@ -1,5 +1,9 @@
 <div>
-  <input type="number" placeholder="categoryId" [(ngModel)]="todo.categoryId">
+  <select [(ngModel)]="todo.categoryId">
+    <option *ngFor="let category of categories" [ngValue]="category.id">
+      {{ category.name }}
+    </option>
+  </select>
   <input type="text" placeholder="title" [(ngModel)]="todo.title">
   <input type="text" id="body" placeholder="body" [(ngModel)]="todo.body">
   <input type="text" placeholder="state" [(ngModel)]="todo.state">

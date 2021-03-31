@@ -11,7 +11,7 @@ import { TodoListService } from '../todo-list.service';
   styleUrls: ['./todo-register.component.scss']
 })
 export class TodoRegisterComponent implements OnInit {
-  @Input() todo: IncompleteTodo = {categoryId: 0, title: '', body: '', state: 'ACTIVE'};
+  @Input() todo: IncompleteTodo = {categoryId: 1, title: '', body: '', state: 'ACTIVE'};
   @Output() registerEvent = new EventEmitter();
 
   categories: Category[] = [];
