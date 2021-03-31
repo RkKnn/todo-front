@@ -23,6 +23,10 @@ export class TodoListService {
     );
   }
 
+  getStateTypes(): Observable<string[]> {
+    return this.http.get<string[]>(Backend.url('stateTypes'));
+  }
+
   deleteTodoList(ids: number[]): Observable<void> {
     return this.http.post<void>(Backend.url('delete'), ids);
   }

@@ -11,19 +11,28 @@ import { TodoListService } from '../todo-list.service';
   styleUrls: ['./todo-register.component.scss']
 })
 export class TodoRegisterComponent implements OnInit {
-  @Input() todo: IncompleteTodo = {categoryId: 1, title: '', body: '', state: 'ACTIVE'};
+  @Input() todo: IncompleteTodo = {categoryId: 1, title: '', body: '', state: ''};
   @Output() registerEvent = new EventEmitter();
 
   categories: Category[] = [];
+  stateTypes: string[] = [];
 
   constructor(private http: HttpClient, private todoListService: TodoListService, private categoryService: CategoryService) { }
 
   ngOnInit(): void {
     this.getCategories();
+    this.getStateTypes();
   }
 
   getCategories(): void {
     this.categoryService.getCategories().subscribe(categories => this.categories = categories);
+  }
+
+  getStateTypes(): void {
+    this.todoListService.getStateTypes().subscribe(stateTypes => {
+      this.stateTypes = stateTypes
+      this.todo.state = this.stateTypes[0];
+    });
   }
 
   addTodo(): void {
