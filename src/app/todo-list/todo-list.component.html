@@ -8,6 +8,7 @@
         <h3 class="todo-list__title">{{ todo.item.title }}</h3>
         <div>
           <pre>{{ todo.item.body }}</pre>
+          {{ categoryRef.get(todo.item.categoryId)?.name || 'no category' }}
         </div>
       </div>
     </li>

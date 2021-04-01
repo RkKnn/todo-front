@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoListService } from '../todo-list.service';
 
-import { Todo, WithCheckbox } from '*/json/todo.json';
+import { Todo, WithCheckbox, Category } from '*/json/todo.json';
+import { mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-todo-list',
@@ -10,6 +11,7 @@ import { Todo, WithCheckbox } from '*/json/todo.json';
 })
 export class TodoListComponent implements OnInit {
   todoList: WithCheckbox<Todo>[] = [];
+  categoryRef: Map<number, Category> = new Map();
 
   constructor(private todoListService: TodoListService) { }
 
@@ -18,8 +20,13 @@ export class TodoListComponent implements OnInit {
   }
 
   getTodoList(): void {
-    this.todoListService.getTodoList().subscribe(todoList => {
-      this.todoList = todoList.map(todo => ({item: todo, checked: false} as WithCheckbox<Todo>));
+    this.todoListService.getTodoList().pipe(
+      mergeMap(todoList => {
+        this.todoList = todoList.map(todo => ({item: todo, checked: false} as WithCheckbox<Todo>));
+        return this.todoListService.getCategoryRef(todoList.map(todo => todo.categoryId));
+      })
+    ).subscribe(categoryRef => {
+      this.categoryRef = categoryRef;
     });
   }
 

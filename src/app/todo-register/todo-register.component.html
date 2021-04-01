@@ -1,7 +1,15 @@
 <div>
-  <input type="number" placeholder="categoryId" [(ngModel)]="todo.categoryId">
+  <select [(ngModel)]="todo.categoryId">
+    <option *ngFor="let category of categories" [ngValue]="category.id">
+      {{ category.name }}
+    </option>
+  </select>
   <input type="text" placeholder="title" [(ngModel)]="todo.title">
   <input type="text" id="body" placeholder="body" [(ngModel)]="todo.body">
-  <input type="text" placeholder="state" [(ngModel)]="todo.state">
+  <select [(ngModel)]="todo.state">
+    <option *ngFor="let stateType of stateTypes" [ngValue]="stateType">
+      {{ stateType }}
+    </option>
+  </select>
   <button (click)="addTodo()">追加</button>
 </div>
