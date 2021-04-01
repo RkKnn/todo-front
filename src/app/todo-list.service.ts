@@ -13,6 +13,10 @@ export class TodoListService {
   constructor(private http: HttpClient) { }
 
   getTodoList(): Observable<Todo[]> {
-    return this.http.get<Todo[]>(Backend.url("todos"));
+    return this.http.get<Todo[]>(Backend.url('todos'));
+  }
+
+  deleteTodoList(ids: number[]): Observable<void> {
+    return this.http.post<void>(Backend.url('delete'), ids);
   }
 }
