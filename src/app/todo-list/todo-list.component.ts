@@ -25,6 +25,10 @@ export class TodoListComponent implements OnInit {
 
   deleteTodo(): void {
     const ids = this.todoList.filter(value => value.checked).map(value => value.item.id);
-    this.todoListService.deleteTodoList(ids).subscribe();
+    this.todoListService.deleteTodoList(ids).subscribe(() => this.todoRefresh());
+  }
+
+  todoRefresh(): void {
+    this.getTodoList();
   }
 }

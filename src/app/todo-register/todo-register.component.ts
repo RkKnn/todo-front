@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { IncompleteTodo } from '*/json/todo.json';
 import { HttpClient } from '@angular/common/http';
 import { Backend } from '../app.module';
-import { TodoListComponent } from '../todo-list/todo-list.component';
 
 @Component({
   selector: 'app-todo-register',
@@ -11,6 +10,7 @@ import { TodoListComponent } from '../todo-list/todo-list.component';
 })
 export class TodoRegisterComponent implements OnInit {
   @Input() todo: IncompleteTodo = {categoryId: 0, title: '', body: '', state: 'ACTIVE'};
+  @Output() registerEvent = new EventEmitter();
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +18,6 @@ export class TodoRegisterComponent implements OnInit {
   }
 
   addTodo(): void {
-    this.http.post(Backend.url('register'), this.todo).subscribe();
+    this.http.post(Backend.url('register'), this.todo).subscribe(() => this.registerEvent.emit());
   }
 }
